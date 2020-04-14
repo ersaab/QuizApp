@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="col-sm-12">
+        <h4 class="subhead">Enter Details to Start Quiz</h4>
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="userFName" placeholder="First Name" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="userLName" placeholder="Last Name" required>
+              </div>
+
+            <div class="form-group">
+              <input type="email" class="form-control" [(ngModel)]="userEmail" placeholder="xyz@example.com" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          <!--<a [routerLink]="ques">Navigate</a>-->
+
+          <div class="showenter">
+            <h2>Hi</h2>
+            <h2>  {{ fullName }}  </h2><button class="btn btn-block">Click Here to Enter Test >></button>
+          </div>
+    </div>
+</div>

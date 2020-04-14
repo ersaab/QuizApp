@@ -1,3 +1,15 @@
-p {
-  font-family: Lato;
+.cmain
+{
+    height: 450px;
+    border: 0.5px solid;
+    padding: 10px;
+    box-shadow: 6px 10px burlywood;
+}
+
+.cfoot{
+    padding-top: 2rem;
+    height: auto;
+}
+.chead{
+    height: auto;
 }

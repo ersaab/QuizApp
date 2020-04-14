@@ -1,0 +1,19 @@
+.subhead
+{
+    text-align: center;
+    color: green;
+    padding-bottom: 2rem;
+}
+
+.showenter{
+    text-align: center;
+}
+.btn-block{
+    text-align: center;
+    border-radius: 2px;
+    width: 13rem;
+    float: right;
+    font-size: 15px;
+    color:white;
+    background-color: teal;
+}

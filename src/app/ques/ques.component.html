@@ -1,0 +1,20 @@
+
+<table *ngFor= "let ques of quesData">
+    <tr>
+        <th>
+            <p> {{ques.id}} {{ques.statement}} </p>
+        </th>
+    </tr>
+    <tr>
+        <td><label><input type="radio" class="radio" name="opt1" checked> {{ques.opt1}} </label></td>
+    </tr>
+    <tr>
+        <td><label><input type="radio" class="radio" name="opt2" checked> {{ques.opt2}} </label></td>
+    </tr>
+    <tr>
+        <td><label><input type="radio" class="radio" name="opt3" checked> {{ques.opt3}} </label></td>
+    </tr>
+    <tr>
+        <td><label><input type="radio" class="radio" name="opt4" checked> {{ques.opt4}} </label></td>
+    </tr>
+</table>
