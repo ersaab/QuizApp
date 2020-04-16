@@ -8,7 +8,7 @@ import { QuesComponent } from '../ques/ques.component';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+ emailPattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
   userFName :string = '';
   userLName :string = '';
   userEmail :string = '';

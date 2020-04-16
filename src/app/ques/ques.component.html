@@ -1,20 +1,24 @@
-
-<table *ngFor= "let ques of quesData">
-    <tr>
-        <th>
-            <p> {{ques.id}} {{ques.statement}} </p>
-        </th>
-    </tr>
-    <tr>
-        <td><label><input type="radio" class="radio" name="opt1" checked> {{ques.opt1}} </label></td>
-    </tr>
-    <tr>
-        <td><label><input type="radio" class="radio" name="opt2" checked> {{ques.opt2}} </label></td>
-    </tr>
-    <tr>
-        <td><label><input type="radio" class="radio" name="opt3" checked> {{ques.opt3}} </label></td>
-    </tr>
-    <tr>
-        <td><label><input type="radio" class="radio" name="opt4" checked> {{ques.opt4}} </label></td>
-    </tr>
-</table>
+<form #checkForm="ngForm" (submit)="ansCheck(checkForm.value)" novalidate>
+    <div class="container">
+        <div class="card"  *ngFor="let ques of quesData  | paginate: { itemsPerPage: 1, currentPage: p }">
+            <div class="card-header">
+                <h2 class="card-title"> {{ques.id}}. {{ques.question}} </h2>
+            </div>
+            <div class="card-body">
+                <ul *ngFor= "let opt of ques.options" >
+                    <li class="list-inline card-subtitle">
+                        <input type="radio" name="{{ques.id}}" 
+                            value="{{opt}}"
+                            [checked]="(question.userAnswer ? option ===
+                            question.userAnswer: false)"
+                            ngModel >
+                         {{opt}} 
+                    </li>
+                </ul>  
+            </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger btn-lg btn-block">Result</button>
+    </form>
+    

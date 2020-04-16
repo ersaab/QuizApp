@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 creater :string = "Harmanjit Singh"
-link :string = "http://www.erharmanjitsingh.com/."
+link :string = "http://www.erharmanjitsingh.com/"
 year = new Date().getFullYear();
 
 

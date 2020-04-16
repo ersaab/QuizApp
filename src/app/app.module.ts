@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms"; 
 import { Router, RouterLink, RouterModule } from "@angular/router";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { ResultComponent } from './result/result.component';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    NgxPaginationModule,
     FormsModule
   ],
   providers: [],
