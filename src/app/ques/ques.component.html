@@ -1,24 +1,40 @@
-<form #checkForm="ngForm" (submit)="ansCheck(checkForm.value)" novalidate>
-    <div class="container">
-        <div class="card"  *ngFor="let ques of quesData  | paginate: { itemsPerPage: 1, currentPage: p }">
-            <div class="card-header">
-                <h2 class="card-title"> {{ques.id}}. {{ques.question}} </h2>
-            </div>
-            <div class="card-body">
-                <ul *ngFor= "let opt of ques.options" >
-                    <li class="list-inline card-subtitle">
-                        <input type="radio" name="{{ques.id}}" 
-                            value="{{opt}}"
-                            [checked]="(question.userAnswer ? option ===
-                            question.userAnswer: false)"
-                            ngModel >
-                         {{opt}} 
-                    </li>
-                </ul>  
-            </div>
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<!-- <table>
+    <tr *ngFor= "let ques of quesData | paginate: { itemsPerPage: 10, currentPage: q }">
+        <th>
+            <p> {{ques.qid}} {{ques.question}} </p>
+        </th>
+    </tr>
+    <tr>
+        <td><label><input type="radio" class="radio" id="opt[0]" name= {{ques.qid}} value={{ques.options[0]}} > {{ques.options[0]}} </label></td>
+    </tr>
+    <tr>
+        <td><label><input type="radio" class="radio" id="opt[1]" name= {{ques.qid}} value={{ques.options[1]}} > {{ques.options[1]}} </label></td>
+    </tr>
+    <tr>
+        <td><label><input type="radio" class="radio" id="opt[2]" name= {{ques.qid}} value={{ques.options[2]}}> {{ques.options[2]}} </label></td>
+    </tr>
+    <tr>
+        <td><label><input type="radio" class="radio" id="opt[3]" name= {{ques.qid}} value={{ques.options[3]}}> {{ques.options[3]}} </label></td>
+    </tr>
+        <tr>
+        <td>Answer is: {{ques.answer}} </td>
+    </tr>
+</table>
+<pagination-controls (pageChange)="q = $event"></pagination-controls>
+ -->
+
+<div class="cntainer">
+    <div class="col-sm-12">
+        <div *ngFor="let ques of quesData | paginate:{ itemsPerPage: 1, currentPage: p } ">
+            <h4 class="queslist"> {{ques.qid}}. {{ques.question}} </h4>
+            <ul class="optionlist" *ngFor= "let opt of ques.options" >
+                <li class="list-inline card-subtitle">
+                    <input type="radio" name="{{ques.id}}" value="{{opt}}"  ngModel >
+                     {{opt}} 
+                </li>
+            </ul>  
+            <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
-    <button type="submit" class="btn btn-danger btn-lg btn-block">Result</button>
-    </form>
-    
+<button type="submit" class="btn btn-danger btn-lg btn-block">Result</button>
+</div>
