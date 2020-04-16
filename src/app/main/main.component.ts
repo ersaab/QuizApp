@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
-import { QuesComponent } from '../ques/ques.component';
+export class User {
+  public userName: string;
+  public userEmail: string;
+}
 
 @Component({
   selector: 'app-main',
@@ -9,14 +13,13 @@ import { QuesComponent } from '../ques/ques.component';
 })
 export class MainComponent implements OnInit {
  emailPattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
-  userFName :string = '';
-  userLName :string = '';
-  userEmail :string = '';
-
-  fullName = this.userFName + this.userLName;
+ 
+  model =  new User();
   
-
-  constructor() { }
+  onSubmit(form) {
+      console.log(form.value)
+    }
+  constructor(public router: Router) {}
 
   ngOnInit(): void {
   }

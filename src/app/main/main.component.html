@@ -1,36 +1,38 @@
+<div class="container-fluid">
+  <h4 class="subhead">Enter Details to Start Quiz</h4>
+  <div class="col-sm-12">
+    
+    <form #entryForm="ngForm" (ngSubmit)="onSubmit(entryForm)">
 
-<div class="container">
-    <div class="col-sm-12">
-      <form #regForm="ngForm" class="needs-validation" novalidate >
-        <h4 class="subhead">Enter Details to Start Quiz</h4>
-            <div class="form-group">
-              <input type="text" class="form-control" [(ngModel)]="userFName" placeholder="First Name" required>
-              <div class="valid-tooltip">
-                Looks good!
-              </div>
-            </div>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="userName" class="form-control" [(ngModel)]="model.userName" #userName="ngModel"
+        [ngClass]="{ 'is-invalid': entryForm.submitted && entryForm.invalid }" required>
+        <div class="invalid-feedback" *ngIf="entryForm.submitted && userName.invalid">
+        <p *ngIf="userName.errors.required">Name is required</p>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" name="userEmail" [(ngModel)]="model.userEmail" #userEmail="ngModel"
+        [ngClass]="{ 'is-invalid': entryForm.submitted && userEmail.invalid }" email required>
+        <div *ngIf="entryForm.submitted && userEmail.invalid" class="invalid-feedback">
+        <div *ngIf="userEmail.errors.required">Email is required</div>
+        <div *ngIf="userEmail.errors.email">Must be a valid email address</div>
+        </div>
+      </div>
 
-            <div class="form-group">
-                <input type="text" class="form-control" [(ngModel)]="userLName" placeholder="Last Name" required>
-                <div class="valid-tooltip">
-                  Looks good!
-                </div>
-              </div>
-
-            <div class="form-group">
-              <input type="email" class="form-control" [(ngModel)]="userEmail" placeholder="Email Address" required [pattern]="emailPattern" >
-              <div class="valid-tooltip">
-                email
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary" [disabled]= "!userEmail && !userFName && !userLName " >Submit</button>
-          <!--<a [routerLink]="ques">Navigate</a>--> 
-      </form>        
-    </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-danger btn-block">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>
+<hr>
+ <div class="row showenter">
+ <h3 class="name"> Hi {{model.userName}} </h3>
+ <br>
 
-
- <div class="showenter">
-  <h2>Hi</h2>
-  <h2>  {{ fullName }}  </h2><a [routerLink]="['ques']" class="btn btn-block">Click Here to Enter Test >></a>
-</div> 
+  <button [disabled]="!entryForm.valid" [routerLink]="['ques']" class="btn btn-block quizb">Click Here to Enter Test</button>
+</div>
