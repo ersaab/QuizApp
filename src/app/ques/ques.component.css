@@ -1,25 +1,9 @@
-.card
-{
-    margin: 0 auto;
-    
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    width: 900px;
-    height: 400px;
-    box-shadow: 4px 4px 4px 4px grey;
+.optionlist{
+    padding-top: 10px;
 }
-.card-header
-{
-    background-color: darkcyan;
-    color: white;
-    padding-bottom: 0;
+.queslist{
+    padding-bottom: 18px;
 }
-.card-title{
-    font-size: 24px;
-    font-family: Helvetica;
-}
-
-.card-body
-{
-  font-size: large;   
+.pagw{
+    color: red;
 }
