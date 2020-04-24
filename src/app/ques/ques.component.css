@@ -4,6 +4,29 @@
 .queslist{
     padding-bottom: 18px;
 }
-.pagw{
-    color: red;
+.ques{
+    height: 300px;
+}
+.final
+{
+    padding-top: 9px;
+}
+
+.btn{
+    background-color: darkcyan;
+    color:white;
+    box-shadow: 2px 2px 4px 2px rgb(196, 193, 193);;
+ 
+}
+.btn-prev
+{
+    float: left;
+}
+.btn-next
+{
+    float: right;
+}
+.btn-sub
+{
+    align-content: center;
 }

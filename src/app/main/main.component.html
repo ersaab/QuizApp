@@ -2,12 +2,13 @@
   <h4 class="subhead">Enter Details to Start Quiz</h4>
   <div class="col-sm-12">
     
-    <form #entryForm="ngForm" (ngSubmit)="onSubmit(entryForm)">
+    <form #entryForm="ngForm" (ngSubmit)="onSubmit(entryForm.valid)">
 
       <div class="form-group">
         <label>Name</label>
         <input type="text" name="userName" class="form-control" [(ngModel)]="model.userName" #userName="ngModel"
-        [ngClass]="{ 'is-invalid': entryForm.submitted && entryForm.invalid }" required>
+        [ngClass]="{ 'is-invalid': entryForm.submitted && entryForm.invalid }"
+        [pattern]="namePattern" required>
         <div class="invalid-feedback" *ngIf="entryForm.submitted && userName.invalid">
         <p *ngIf="userName.errors.required">Name is required</p>
         </div>
@@ -16,7 +17,7 @@
       <div class="form-group">
         <label>Email</label>
         <input type="email" class="form-control" name="userEmail" [(ngModel)]="model.userEmail" #userEmail="ngModel"
-        [ngClass]="{ 'is-invalid': entryForm.submitted && userEmail.invalid }" email required>
+        [ngClass]="{ 'is-invalid': entryForm.submitted && userEmail.invalid }"  required>
         <div *ngIf="entryForm.submitted && userEmail.invalid" class="invalid-feedback">
         <div *ngIf="userEmail.errors.required">Email is required</div>
         <div *ngIf="userEmail.errors.email">Must be a valid email address</div>
@@ -33,6 +34,7 @@
  <div class="row showenter">
  <h3 class="name"> Hi {{model.userName}} </h3>
  <br>
-
-  <button [disabled]="!entryForm.valid" [routerLink]="['ques']" class="btn btn-block quizb">Click Here to Enter Test</button>
+ 
+<!--Disabled until form is valid-->
+  <button [disabled]="!entryForm.valid || linkbtn" id="linkbtn" [routerLink]="['ques']" class="btn btn-block quizb">Click Here to Enter Test</button>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { User } from "../main/main.component";
 
 @Component({
   selector: 'app-result',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
+  greet = "Congratulations!";
 
-  constructor() { }
+  constructor( public router : Router  ) { }
 
   ngOnInit(): void {
+    
   }
 
 }

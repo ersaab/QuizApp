@@ -7,9 +7,9 @@ import { MainComponent } from './main/main.component';
 
 
 const routes: Routes = [
-  { path:"" , component: MainComponent },
-  { path:"ques" , component: QuesComponent },
-  { path:"result", component: ResultComponent }
+  { path:'' , component: MainComponent },
+  { path:'ques' , component: QuesComponent },
+  { path:'result', component: ResultComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,12 @@
+.row
+{
+    justify-content: center;
+    padding: 20px;
+}
+
+.btn{
+    background-color: darkcyan;
+    color:white;
+    box-shadow: 2px 2px 4px 2px rgb(196, 193, 193);;
+ 
+}

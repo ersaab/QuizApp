@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionsService } from "../services/questions.service";
+import { Router } from "@angular/router"
+import { anslist } from '../shared/anslist.model';
+import { quesDataModel } from "../shared/question.model";
 
 @Component({
   selector: 'app-ques',
@@ -6,48 +10,59 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ques.component.css']
 })
 export class QuesComponent implements OnInit {
- p :number;
 
-  quesData = [
-    {
-      qid: 1,
-      question: "Which is the largest country in the world by population?",
-      options: ["India", "USA", "China", "Russia"],
-      answer: "China"
-    },
-    {
-      qid: 2,
-      question: "When did the second world war end?",
-      options: ["1945", "1939", "1944", "1942"],
-      answer: "1945"
-    },
-    {
-      qid: 3,
-      question: "Which was the first country to issue paper currency?",
-      options: ["USA", "France", "Italy", "China"],
-      answer: "China"
-    },
-    {
-      qid: 4,
-      question: "Which city hosted the 1996 Summer Olympics?",
-      options: ["Atlanta", "Sydney", "Athens", "Beijing"],
-      answer: "Atlanta"
-    },
-    {
-      qid: 5,
-      question: "Who invented telephone?",
-      options: ["Albert Einstein", "Alexander Graham Bell", "Isaac Newton", "Marie Curie"],
-      answer: "Alexander Graham Bell"
-    }
-  ]
+  quesDataModels = new quesDataModel();
+  quesdata;
+  anslist = Array<anslist>();
+  ques:any = [] ;
+  move :number=0;
 
- 
-  constructor() { }
-
-  ansCheck(value: any) {
-    alert(JSON.stringify(value));
+  checkAns(qid, opts)
+  {
+    var index = this.anslist.findIndex((obj => obj.aid == qid));
+     if(index >=0 && index <=4)
+      {
+        this.anslist[index].userans = opts;
+      }
+      else
+      {
+        this.anslist.push({aid: qid, userans: opts});
+      }
+        console.log(this.anslist);
   }
+  
+  results()
+  {
+    console.log("Result Section");
+  }
+  
+  //Pagination controls --------------------------------------------------------------------
+  queslist()
+  {
+    this.quesdata = this.questionservice.getData(this.move);
+  }
+  
+  next(){
+    if(this.move >=  0 && this.move <= 3)
+    {
+      this.move++;
+      this.quesdata = this.questionservice.getData(this.move);
+    }
+  }
+
+  previous(){
+    if(this.move >= 1)
+    {
+      this.move--;
+      this.quesdata = this.questionservice.getData(this.move);
+    }
+  }
+//pagination Controls
+  constructor(public router : Router, private questionservice : QuestionsService ) {}
+
   ngOnInit(): void {
+    this.queslist();
+    
   }
 
 }

@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { QuesComponent } from './ques/ques.component';
 import { ResultComponent } from './result/result.component';
+import { QuestionsService } from './services/questions.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ResultComponent } from './result/result.component';
     NgxPaginationModule,
     FormsModule
   ],
-  providers: [],
+  providers: [QuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
