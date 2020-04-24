@@ -24,7 +24,7 @@ input.validation.text-danger {
 {
     border: 1px solid #0099cc;
     background-color: darkcyan;
-    color: #ffffff;
+    color: white;
     border-radius: 18px ;
 }
   .btn[disabled]
