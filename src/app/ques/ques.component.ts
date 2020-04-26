@@ -37,7 +37,7 @@ export class QuesComponent implements OnInit {
   results()
   {
     this.score = 0;
-    for(var qid=1; qid<=anslist.length; qid++)
+    for(var qid=1; qid<=; qid++)
     {
       var index = this.anslist.findIndex((obj => obj.aid == qid));
       if(index >= 0 && index != null)
