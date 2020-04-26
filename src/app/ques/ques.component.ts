@@ -3,6 +3,9 @@ import { QuestionsService } from "../services/questions.service";
 import { Router } from "@angular/router"
 import { anslist } from '../shared/anslist.model';
 import { quesDataModel } from "../shared/question.model";
+import { ResultService } from "";
+import { Result } from "../shared/result.model";
+import { Statement } from '@angular/compiler';
 
 @Component({
   selector: 'app-ques',
@@ -11,58 +14,73 @@ import { quesDataModel } from "../shared/question.model";
 })
 export class QuesComponent implements OnInit {
 
-  quesDataModels = new quesDataModel();
-  quesdata;
+  quesData = new quesDataModel();
   anslist = Array<anslist>();
-  ques:any = [] ;
+  ques ;
+  marks = new Result(); 
   move :number=0;
+  score :number;
 
-  checkAns(qid, opts)
+  saveSelection(qid, valueSelected)
   {
     var index = this.anslist.findIndex((obj => obj.aid == qid));
      if(index >=0 && index <=4)
       {
-        this.anslist[index].userans = opts;
+        this.anslist[index].userans = valueSelected;
       }
       else
       {
-        this.anslist.push({aid: qid, userans: opts});
+        this.anslist.push({aid: qid, userans: valueSelected});
       }
-        console.log(this.anslist);
   }
-  
+
   results()
   {
-    console.log("Result Section");
+    this.score = 0;
+    for(var qid=1; qid<=5; qid++)
+    {
+      var index = this.anslist.findIndex((obj => obj.aid == qid));
+      if(index >= 0 && index != null)
+      {
+        if(this.anslist[index].userans === this.questionservice.getAns(qid-1))
+        {
+         this.score++
+        }
+      }
+    }
+    this.resultservice.passvalue(this.score);
+    this.router.navigate(['/result']);
   }
-  
-  //Pagination controls --------------------------------------------------------------------
+
+
+  //---------------------------------------------------Pagination Controls----------------------------------------------
   queslist()
   {
-    this.quesdata = this.questionservice.getData(this.move);
+    this.quesData = this.questionservice.getData(this.move);
   }
   
-  next(){
+  next()
+  {
     if(this.move >=  0 && this.move <= 3)
     {
       this.move++;
-      this.quesdata = this.questionservice.getData(this.move);
+      this.quesData = this.questionservice.getData(this.move);
     }
   }
 
-  previous(){
+  previous()
+  {
     if(this.move >= 1)
     {
       this.move--;
-      this.quesdata = this.questionservice.getData(this.move);
+      this.quesData = this.questionservice.getData(this.move);
     }
   }
-//pagination Controls
-  constructor(public router : Router, private questionservice : QuestionsService ) {}
+  //---------------------------------------------------Pagination Controls----------------------------------------------
+  constructor(public router : Router, private questionservice : QuestionsService, private resultservice : ResultService ) {}
 
   ngOnInit(): void {
     this.queslist();
-    
   }
 
 }

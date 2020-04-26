@@ -1,29 +1,26 @@
 <div class="container">
         <div class="col-sm-12 ques">
-                <h4 class="queslist"> {{quesdata.qid}}. {{quesdata.question}} </h4>
-                <div class="form-group optionlist" *ngFor= "let opt of quesdata.options" >
-                    <div class="radio-light card-subtitle" >
+                <h4 class="queslist"> {{quesData.qid}}. {{quesData.question}} </h4>
+                <div class="form-group optionlist" *ngFor= "let opt of quesData.options; let i = index" >
                         <input type="radio"
                         name= "ques"
                         [value] = 'opt'
-                        (click)="checkAns(quesdata.qid, opt)"
+                        (click)="saveSelection(quesData.qid, opt)"
                         [(ngModel)]= "ques"
-                        id = "ques"
-                        checked = "ques" >
+                        id={{i}}>
                         {{opt}} 
-                    </div>
                 </div> 
         </div>
         <div class="row col-sm-12">
             <div class="col-sm-6">                
-                <button [hidden]=" quesdata.qid == 1" (click)="previous()" class="btn btn-prev ">Previous</button>
+                <button [hidden]=" quesData.qid == 1" (click)="previous()" class="btn btn-prev ">Previous</button>
             </div>
             <div class="col-sm-6">
-                <button [hidden]="quesdata.qid == 5" (click)="next()" class="btn btn-next ">Next</button>
+                <button [hidden]="quesData.qid == 5" (click)="next()" class="btn btn-next ">Next</button>
             </div>
         </div> 
         <div class="final col-sm-12 ">
-            <button [hidden]="quesdata.qid != 5" (click)="results()"  class="btn btn-sub btn-block ">Results</button>
+            <button [hidden]="quesData.qid != 5" (click)="results()"  class="btn btn-sub btn-block ">Results</button>
         </div>    
 </div>
 

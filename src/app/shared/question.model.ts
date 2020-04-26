@@ -1,5 +1,3 @@
-import { QuestionsService } from '/services/QuestionsService';
-
 export class quesDataModel {
     public qid: number;
     public question: string;

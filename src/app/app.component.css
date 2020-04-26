@@ -5,7 +5,6 @@
 .outlet{
     padding-top: 10px;
 }
-
 .cmain
 {
     background-color: white;
@@ -13,7 +12,7 @@
     border: 0.5px none;
     padding: 20px;
     padding-top: 30px;
-    box-shadow: 4px 9px 12px 6px darkcyan;
+    box-shadow: 4px 9px 9px 4px rgb(12, 160, 160);
 }
 
 .cfoot{
@@ -22,4 +21,4 @@
 }
 .chead{
     height: auto;
-}
+} 
