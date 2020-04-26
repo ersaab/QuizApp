@@ -97,4 +97,4 @@ export class QuesComponent implements OnInit {
     this.queslist();
   }
 
-}s
+}
