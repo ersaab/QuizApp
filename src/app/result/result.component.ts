@@ -13,7 +13,7 @@ export class ResultComponent implements OnInit {
   marks = new Result();
   avg(marks)
   {
-    if(marks >= 2)
+    if(marks > 2)
     {
       this.greet = "Congratulations!"
     }
