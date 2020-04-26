@@ -21,6 +21,8 @@ export class MainComponent implements OnInit {
   onSubmit(form) 
     {
       this.linkbtn = false;
+      this.model.push({aid: qid, userans: valueSelected});      
+      alert(this.model);
     }
 
   constructor(public router: Router) {}

@@ -33,8 +33,9 @@
 <hr>
  <div class="row showenter">
  <h3 class="name"> Hi {{model.userName}} </h3>
+ <h2 class="name">Welcome to Quiz</h2>
  <br>
  
 <!--Disabled until form is valid-->
-  <button [disabled]="!entryForm.valid || linkbtn" id="linkbtn" [routerLink]="['ques']" class="btn btn-block quizb">Click Here to Enter Test</button>
+  <button [hidden]="!entryForm.valid || linkbtn" id="linkbtn" [routerLink]="['ques']" class="btn btn-block quizb">Click Here to Enter Test</button>
 </div>
