@@ -13,10 +13,10 @@
         </div>
         <div class="row col-sm-12">
             <div class="col-sm-6">                
-                <button [hidden]=" quesData.qid == 1" (click)="previous()" class="btn btn-prev ">Previous</button>
+                <button [hidden]=" quesData.qid == 1" (click)="previous(quesData.qid)" class="btn btn-prev ">Previous</button>
             </div>
             <div class="col-sm-6">
-                <button [hidden]="quesData.qid == 5" (click)="next()" class="btn btn-next ">Next</button>
+                <button [hidden]="quesData.qid == 5" (click)="next(quesData.qid)" class="btn btn-next ">Next</button>
             </div>
         </div> 
         <div class="final col-sm-12 ">

@@ -17,6 +17,7 @@ export class QuesComponent implements OnInit {
   quesData = new quesDataModel();
   anslist = Array<anslist>();
   ques ;
+  newQid;
   marks = new Result(); 
   move :number=0;
   score :number;
@@ -52,6 +53,16 @@ export class QuesComponent implements OnInit {
     this.router.navigate(['/result']);
   }
 
+  saveState(newQid)
+  {
+    for (let index = 0; index < this.anslist.length; index++) 
+    {
+      if(this.anslist[index].aid === this.newQid)
+      {
+         this.ques = this.anslist[index].userans
+      }
+    }
+  }
 
   //---------------------------------------------------Pagination Controls----------------------------------------------
   queslist()
@@ -59,21 +70,25 @@ export class QuesComponent implements OnInit {
     this.quesData = this.questionservice.getData(this.move);
   }
   
-  next()
+  next(qid)
   {
     if(this.move >=  0 && this.move <= 3)
     {
       this.move++;
       this.quesData = this.questionservice.getData(this.move);
+      this.newQid = qid+1;
+      this.saveState(this.newQid);
     }
   }
 
-  previous()
+  previous(qid)
   {
     if(this.move >= 1)
     {
       this.move--;
+      this.newQid = qid-1;
       this.quesData = this.questionservice.getData(this.move);
+      this.saveState(this.newQid);
     }
   }
   //---------------------------------------------------Pagination Controls----------------------------------------------
