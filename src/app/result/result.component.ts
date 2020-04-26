@@ -10,10 +10,8 @@ import { Result } from "../shared/result.model";
 })
 export class ResultComponent implements OnInit {
   greet = "Congratulations!";
-
   marks = new Result();
   
-
   constructor( public router : Router, private resultservice: ResultService  ) { }
 
   ngOnInit(): void {

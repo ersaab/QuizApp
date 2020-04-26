@@ -12,7 +12,6 @@ import { MainComponent } from './main/main.component';
 import { QuesComponent } from './ques/ques.component';
 import { ResultComponent } from './result/result.component';
 import { QuestionsService } from './services/questions.service';
-import { ResultService } from './services/result.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,7 @@ import { ResultService } from './services/result.service';
     NgxPaginationModule,
     FormsModule
   ],
-  providers: [QuestionsService, ResultService],
+  providers: [QuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

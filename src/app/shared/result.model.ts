@@ -1,4 +1,4 @@
 export class Result
 {
-    public marks: number;
+  public marks: number;
 }

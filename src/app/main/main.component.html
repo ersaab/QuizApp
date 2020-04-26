@@ -1,41 +1,33 @@
 <div class="container-fluid">
-  <h4 class="subhead">Enter Details to Start Quiz</h4>
-  <div class="col-sm-12">
-    
-    <form #entryForm="ngForm" (ngSubmit)="onSubmit(entryForm.valid)">
-
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" name="userName" class="form-control" [(ngModel)]="model.userName" #userName="ngModel"
-        [ngClass]="{ 'is-invalid': entryForm.submitted && entryForm.invalid }"
-        [pattern]="namePattern" required>
-        <div class="invalid-feedback" *ngIf="entryForm.submitted && userName.invalid">
-        <p *ngIf="userName.errors.required">Name is required</p>
-        </div>
-      </div>
-    
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" name="userEmail" [(ngModel)]="model.userEmail" #userEmail="ngModel"
-        [ngClass]="{ 'is-invalid': entryForm.submitted && userEmail.invalid }"  required>
-        <div *ngIf="entryForm.submitted && userEmail.invalid" class="invalid-feedback">
-        <div *ngIf="userEmail.errors.required">Email is required</div>
-        <div *ngIf="userEmail.errors.email">Must be a valid email address</div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <button type="submit" class="btn btn-danger btn-block">Submit</button>
-      </div>
-    </form>
+ <h3 class="name text-center"> Hi {{user.userName}}! </h3>
+ <h4 class="subhead text-center">Enter Details to Start Quiz</h4>
+ <hr>
+ <div class="col-sm-12">
+ <form #entryForm="ngForm" (ngSubmit)="onSubmit(entryForm.valid)">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" name="userName" class="form-control" [(ngModel)]="user.userName" #userName="ngModel"
+    [ngClass]="{ 'is-invalid': entryForm.submitted && userName.invalid }"
+    [pattern]="namePattern" required>
+    <div class="invalid-feedback" *ngIf="entryForm.submitted && userName.invalid">
+    <p *ngIf="userName.errors.required">Name is required</p>
+    </div>
   </div>
-</div>
-<hr>
- <div class="row showenter">
- <h3 class="name"> Hi {{model.userName}} </h3>
- <h2 class="name">Welcome to Quiz</h2>
- <br>
- 
-<!--Disabled until form is valid-->
-  <button [hidden]="!entryForm.valid || linkbtn" id="linkbtn" [routerLink]="['ques']" class="btn btn-block quizb">Click Here to Enter Test</button>
+  
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" name="userEmail" [(ngModel)]="user.userEmail" #userEmail="ngModel"
+    [ngClass]="{ 'is-invalid': entryForm.submitted && userEmail.invalid }" required>
+    <div *ngIf="entryForm.submitted && userEmail.invalid" class="invalid-feedback">
+    <div *ngIf="userEmail.errors.required">Email is required</div>
+    <div *ngIf="userEmail.errors.email">Must be a valid email address</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+  <button type="submit" [disabled]="!entryForm.valid" class="btn btn-block quizb">Submit</button>
+  </div>
+  
+ </form>
+ </div>
 </div>

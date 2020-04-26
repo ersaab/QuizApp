@@ -1,32 +1,48 @@
-.optionlist{
-    padding-top: 10px;
-}
-.queslist{
-    padding-bottom: 18px;
-}
 .ques{
-    height: 300px;
+  height: 300px;
 }
-.final
+.optionlist{
+  padding-top: 9px;
+}
+.res
 {
-    padding-top: 9px;
+  padding-top: 9px;
 }
-
+.prevbtn
+{
+  padding-bottom: 5px;
+}
 .btn{
-    background-color: darkcyan;
-    color:white;
-    box-shadow: 2px 2px 4px 2px rgb(196, 193, 193);;
+  background-color: darkcyan;
+  color:white;
+  box-shadow: 2px 2px 4px 2px rgb(196, 193, 193);;
  
 }
 .btn-prev
 {
-    float: left;
+  width: max-content;
+  float: left;
 }
 .btn-next
 {
-    float: right;
+  width: max-content;
+  float: right;
 }
 .btn-sub
 {
-    align-content: center;
+  align-content: center;
+}
+
+@media (min-device-width : 320px) and (max-device-width : 480px) {
+.btn-prev
+  {
+  width: 100%;
+  font-size: small;
+  }
+.btn-next
+  {
+  width: 100%;
+  font-size: small;
+  }
+  
 }

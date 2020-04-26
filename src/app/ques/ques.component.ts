@@ -5,7 +5,6 @@ import { anslist } from '../shared/anslist.model';
 import { quesDataModel } from "../shared/question.model";
 import { ResultService } from "../services/result.service";
 import { Result } from "../shared/result.model";
-import { Statement } from '@angular/compiler';
 
 @Component({
   selector: 'app-ques',
@@ -38,7 +37,7 @@ export class QuesComponent implements OnInit {
   results()
   {
     this.score = 0;
-    for(var qid=1; qid<=5; qid++)
+    for(var qid=1; qid<=anslist.length; qid++)
     {
       var index = this.anslist.findIndex((obj => obj.aid == qid));
       if(index >= 0 && index != null)
@@ -86,8 +85,8 @@ export class QuesComponent implements OnInit {
     if(this.move >= 1)
     {
       this.move--;
-      this.newQid = qid-1;
       this.quesData = this.questionservice.getData(this.move);
+      this.newQid = qid-1;
       this.saveState(this.newQid);
     }
   }
@@ -98,4 +97,4 @@ export class QuesComponent implements OnInit {
     this.queslist();
   }
 
-}
+}s

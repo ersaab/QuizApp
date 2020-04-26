@@ -6,16 +6,16 @@ import { Result } from "../shared/result.model";
 })
 export class ResultService {
 
-    marks : Result;
+  marks : Result;
 
-    passvalue(score)
-    {
-        this.marks = score;
-    }
+  passvalue(score)
+  {
+      this.marks = score;
+  }
 
-    getvalue()
-    {
-        return this.marks;
-    }
+  getvalue()
+  {
+      return this.marks;
+  }
   constructor() { }
 }

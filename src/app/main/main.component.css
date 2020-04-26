@@ -1,17 +1,15 @@
-
-
 .quizb{
-    text-align: center;
-    border-radius: 2px;
-    height: 2.7rem;
-    margin:0 auto;
-    color:white;
-    background-color: teal;
+ text-align: center;
+ border-radius: 2px;
+ height: 2.7rem;
+ margin:0 auto;
+ color:white;
+ background-color: teal;
 }
 
 .name
 {
-    padding-bottom: 2rem;
-    margin: 0 auto;
-    color: darkcyan;
+ padding-bottom: 2rem;
+ margin: 0 auto;
+ color: darkcyan;
 }
