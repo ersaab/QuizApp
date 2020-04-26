@@ -9,13 +9,20 @@ import { Result } from "../shared/result.model";
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  greet = "Congratulations!";
+  greet = "Oops!";
   marks = new Result();
-  
+  avg(marks)
+  {
+    if(marks >= 2)
+    {
+      this.greet = "Congratulations!"
+    }
+  }
   constructor( public router : Router, private resultservice: ResultService  ) { }
 
   ngOnInit(): void {
     this.marks = this.resultservice.getvalue();
+    this.avg(this.marks);
   }
 
 }
