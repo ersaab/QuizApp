@@ -22,9 +22,9 @@ input.validation.text-danger {
 }
 .btn:hover
 {
-    border: 1px solid darkcyan;
+    border: 1px solid #0099cc;
     background-color: darkcyan;
-    color: white;
+    color: #ffffff;
     border-radius: 18px ;
 }
   .btn[disabled]
