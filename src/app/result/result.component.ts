@@ -9,7 +9,7 @@ import { Result } from "../shared/result.model";
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  greet = "nfortunately!";
+  greet = "Unfortunately!";
   marks = new Result();
   avg(marks)
   {
