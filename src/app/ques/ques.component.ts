@@ -3,7 +3,7 @@ import { QuestionsService } from "../services/questions.service";
 import { Router } from "@angular/router"
 import { anslist } from '../shared/anslist.model';
 import { quesDataModel } from "../shared/question.model";
-import { ResultService } from "";
+import { ResultService } from "../services/result.service";
 import { Result } from "../shared/result.model";
 import { Statement } from '@angular/compiler';
 
